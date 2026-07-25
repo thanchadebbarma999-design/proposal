@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boss?</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #ffe6e6;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #ff3366;
+            font-size: 50px;
+        }
+
+        button {
+            font-size: 25px;
+            padding: 15px 30px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #no {
+            background-color: #ff4444;
+            color: white;
+            position: absolute;
+        }
+
+        #message {
+            display: none;
+            font-size: 40px;
+            color: #ff3366;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Is Thancha your boss? </h1>
+
+    <button id="yes">Yes ❤️</button>
+    <button id="no">No 😢</button>
+
+    <div id="message">
+        Yay! I knew you would say Yes! 
+    </div>
+
+
+<script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const message = document.getElementById("message");
+
+    noButton.addEventListener("mouseover", function() {
+        moveButton();
+    });
+
+    noButton.addEventListener("click", function() {
+        moveButton();
+    });
+
+    function moveButton() {
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 50);
+
+        noButton.style.left = x + "px";
+        noButton.style.top = y + "px";
+    }
+
+    yesButton.addEventListener("click", function() {
+        document.querySelector("h1").style.display = "none";
+        yesButton.style.display = "none";
+        noButton.style.display = "none";
+        message.style.display = "block";
+    });
+
+</script>
+
+</body>
+</html>
